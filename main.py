@@ -17,6 +17,7 @@ PaddleB = game.create_sprite(3, 4)
 Ball = game.create_sprite(randint(0, 4), 0)
 DirectionY = 1
 DirectionX = randint(-1, 1)
+game.set_score(0)
 basic.pause(500)
 
 def on_every_interval():
@@ -46,3 +47,8 @@ def on_forever():
             DirectionX = -1
         basic.pause(500)
 basic.forever(on_forever)
+
+def on_forever2():
+    if Ball.is_touching(PaddleA) or Ball.is_touching(PaddleB):
+        game.add_score(1)
+basic.forever(on_forever2)
