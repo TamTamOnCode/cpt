@@ -3,12 +3,14 @@ input.onButtonPressed(Button.A, function () {
         PaddleA.change(LedSpriteProperty.X, -1)
         PaddleB.change(LedSpriteProperty.X, -1)
     }
+    music.playTone(165, music.beat(BeatFraction.Half))
 })
 input.onButtonPressed(Button.B, function () {
     if (PaddleA.get(LedSpriteProperty.X) < 3) {
         PaddleA.change(LedSpriteProperty.X, 1)
         PaddleB.change(LedSpriteProperty.X, 1)
     }
+    music.playTone(131, music.beat(BeatFraction.Whole))
 })
 let PaddleB: game.LedSprite = null
 let PaddleA: game.LedSprite = null
@@ -19,9 +21,6 @@ let DirectionY = 1
 let DirectionX = randint(-1, 1)
 game.setScore(0)
 basic.pause(500)
-loops.everyInterval(20, function () {
-    music.playMelody("B A G A G F E C ", 120)
-})
 basic.forever(function () {
     Ball.change(LedSpriteProperty.X, DirectionX)
     Ball.change(LedSpriteProperty.Y, DirectionY)
